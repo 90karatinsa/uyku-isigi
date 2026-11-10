@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/text"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kamera + kağıt difüzör ile gelen ışık ölçümü"
+            android:textColor="@color/text_dim"
+            android:textSize="13sp"
+            android:layout_marginBottom="16dp" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/contextGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSleep"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/ctx_sleep"
+                android:textSize="13sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEvening"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/ctx_evening"
+                android:textSize="13sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDay"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/ctx_day"
+                android:textSize="13sp" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- Ana okuma -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/ediValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="—"
+                android:textColor="@color/text"
+                android:textSize="56sp"
+                android:textStyle="bold"
+                android:includeFontPadding="false" />
+
+            <TextView
+                android:id="@+id/ediLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lüks melanopik EDI"
+                android:textColor="@color/accent"
+                android:textSize="13sp"
+                android:letterSpacing="0.05"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/luxValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ölçüm yapılmadı"
+                android:textColor="@color/text_dim"
+                android:textSize="14sp"
+                android:layout_marginTop="12dp"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/exposureInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/text_dim"
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:id="@+id/warningText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/warn"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Yorum -->
+        <LinearLayout
+            android:id="@+id/verdictCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/verdict_bg"
+            android:padding="18dp"
+            android:layout_marginTop="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/verdictHeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/good"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/verdictDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/verdictAdvice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dim"
+                android:textSize="13sp"
+                android:lineSpacingExtra="3dp"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/measureButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/measure"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            android:layout_marginTop="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sessionButton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="@string/night_session"
+            app:cornerRadius="16dp"
+            android:layout_marginTop="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/lastSessionButton"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Son gece raporunu aç"
+            android:textColor="@color/accent"
+            android:visibility="gone" />
+
+        <!-- Kalibrasyon -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kalibrasyon"
+                android:textColor="@color/text"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/calibrationStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dim"
+                android:textSize="12sp"
+                android:lineSpacingExtra="2dp"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:id="@+id/sensorReading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dim"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/calibrateButton"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calibrate"
+                    android:textSize="12sp" />
+
+                <Space android:layout_width="8dp" android:layout_height="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/darkRefButton"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dark_ref"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Ayarlar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ayarlar"
+                android:textColor="@color/text"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/frontSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ön kamerayı kullan"
+                android:textColor="@color/text"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kalibrasyon, kamerayla aynı yüzdeki ışık sensörüne göre yapılır. Arka kamera genelde daha büyük diyaframlı, daha az gürültülü ve RAW verir; karanlık oda ölçümü için tercih edilir."
+                android:textColor="@color/text_dim"
+                android:textSize="11sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Işık kaynağı"
+                android:textColor="@color/text_dim"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp" />
+
+            <Spinner
+                android:id="@+id/sourceSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/intervalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dim"
+                android:textSize="12sp"
+                android:layout_marginTop="12dp" />
+
+            <SeekBar
+                android:id="@+id/intervalSeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="11"
+                android:progress="4" />
+
+            <TextView
+                android:id="@+id/maxExpLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dim"
+                android:textSize="12sp"
+                android:layout_marginTop="12dp" />
+
+            <SeekBar
+                android:id="@+id/maxExpSeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="5"
+                android:progress="2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uzun pozlama karanlık odada ölçüm tabanını düşürür ama her ölçüm o kadar uzun sürer. Aydınlık ortamda bu ayarın etkisi yoktur; pozlama zaten kısa seçilir."
+                android:textColor="@color/text_dim"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/capabilityInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dim"
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+
+        <!-- Nasıl ölçülür -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nasıl ölçülür"
+                android:textColor="@color/text"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/howToText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dim"
+                android:textSize="12sp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

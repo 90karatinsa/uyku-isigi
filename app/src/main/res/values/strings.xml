@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Uyku Işığı</string>
+    <string name="measure">ÖLÇ</string>
+    <string name="measuring">Ölçülüyor…</string>
+    <string name="night_session">GECE BOYU KAYIT</string>
+    <string name="stop_session">KAYDI DURDUR</string>
+    <string name="calibrate">Kalibre et</string>
+    <string name="dark_ref">Karanlık referansı</string>
+    <string name="ctx_sleep">Uyku</string>
+    <string name="ctx_evening">Akşam</string>
+    <string name="ctx_day">Gündüz</string>
+    <string name="perm_camera_rationale">Işık ölçümü kamera sensörünün pozlama verisinden yapılıyor; kamera izni olmadan çalışamaz.</string>
+</resources>
